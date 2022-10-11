@@ -8,7 +8,6 @@ const filterSlice = createSlice({
   reducers: {
     contactsFilter: {
       reducer(_, action) {
-        console.log(action.payload)
         return { text: action.payload };
       },
     },
