@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/contactsSlice';
+import { deleteContact } from 'redux/operations';
 
 const ItemStyled = styled.div`
   display: flex;

@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import styled from '@emotion/styled';
 import ContactItem from './ContactItem';
+import { selectContact, selectFilter } from 'redux/selectors';
 
 const ListSlyled = styled.ul`
   list-style: none;
@@ -10,8 +11,8 @@ const ListSlyled = styled.ul`
 `;
 
 const ContactList = function () {
-  const contacts = useSelector(state => state.contacts);
-  const filterText = useSelector(state => state.filter.text);
+  const contacts = useSelector(selectContact);
+  const filterText = useSelector(selectFilter);
 
   return (
     <ListSlyled>

@@ -1,9 +1,8 @@
 import { Formik, Form, Field, ErrorMessage} from 'formik';
 import styled from '@emotion/styled';
 import * as yup from 'yup';
-import 'yup-phone';
 import { useDispatch } from 'react-redux';
-import { addContact } from 'redux/contactsSlice';
+import { addContact } from 'redux/operations';
 
 const FormStyled = styled.section`
   padding: 8px;
@@ -21,8 +20,7 @@ const Input = styled(Field)`
 
 const schema = yup.object().shape({
   name: yup.string().required(),
-  number: yup.string().phone().required(),
-  // number: yup.string().phone('UA').required(),
+  number: yup.string().required(),
 });
 
 const ContactsForm = function () {

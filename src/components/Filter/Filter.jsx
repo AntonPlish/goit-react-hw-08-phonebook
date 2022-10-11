@@ -2,7 +2,7 @@ import { Formik, Form, Field } from 'formik';
 import styled from '@emotion/styled';
 import { newFilter } from 'redux/filterSlice';
 import { useSelector, useDispatch } from 'react-redux';
-
+import { selectFilter } from 'redux/selectors';
 
 const FilterPlateStyled = styled.section`
   border: 1px solid lightgrey;
@@ -16,23 +16,23 @@ const Input = styled(Field)`
 `;
 
 const Filter = function () {
-  const filter = useSelector(state => state.filter.text);
+  const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
-  const handleFilter = searchQuery => dispatch(newFilter(searchQuery));
-
+  const handleFilter = query => dispatch(newFilter(query));
+  
   return (
     <FilterPlateStyled style={{ border: '0' }}>
       <Formik initialValues={{ filter: filter }}>
         <Form>
           <label>
-            Find contacts by name
+            Find contact
             <br />
             <Input
               type="text"
               name="filter"
               value={filter}
-              onChange={e => {
-                handleFilter(e.target.value);
+              onChange={error => {
+                handleFilter(error.target.value);
               }}
             ></Input>
           </label>
