@@ -13,7 +13,7 @@ const ListSlyled = styled.ul`
 const ContactList = function () {
   const contacts = useSelector(selectContact);
   const filterText = useSelector(selectFilter);
-
+  
   return (
     <ListSlyled>
       {contacts

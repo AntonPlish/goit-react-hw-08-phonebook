@@ -1,6 +1,6 @@
 import { Formik, Form, Field } from 'formik';
 import styled from '@emotion/styled';
-import { newFilter } from 'redux/filterSlice';
+import { contactsFilter } from 'redux/filterSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectFilter } from 'redux/selectors';
 
@@ -18,7 +18,7 @@ const Input = styled(Field)`
 const Filter = function () {
   const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
-  const handleFilter = query => dispatch(newFilter(query));
+  const handleFilter = query => dispatch(contactsFilter(query));
   
   return (
     <FilterPlateStyled style={{ border: '0' }}>
