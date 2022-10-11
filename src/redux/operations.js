@@ -29,7 +29,7 @@ export const addContact = createAsyncThunk(
     async (newContact, Api) => {
         const { name, number: phone } = newContact;
 
-        const stateContacts = Api.getState().contacts.items;
+        const stateContacts = Api.getState().contacts.contacts;
 
         if (isIncludes(name, stateContacts)) {
             toast.warning(`${name} is already added`);
