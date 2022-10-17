@@ -2,8 +2,6 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 
-axios.defaults.baseURL = 'https://6345398139ca915a69f900ca.mockapi.io/api/v1/';
-
 export const fetchContacts = createAsyncThunk(
     'contacts/fetchAll',
     async (_, Api) => {
@@ -27,8 +25,7 @@ const isIncludes = (newName, stateContacts) => {
 export const addContact = createAsyncThunk(
     'contacts/addContact',
     async (newContact, Api) => {
-        const { name, number: phone } = newContact;
-
+        const { name, number } = newContact;
         const stateContacts = Api.getState().contacts.contacts;
 
         if (isIncludes(name, stateContacts)) {
@@ -37,10 +34,7 @@ export const addContact = createAsyncThunk(
         }
 
         try {
-            const response = await axios.post(
-                '/contacts',
-                { name, phone }
-            );
+            const response = await axios.post('/contacts', { name, number });
             return response.data;
         } catch (error) {
             return Api.rejectWithValue(error.message);

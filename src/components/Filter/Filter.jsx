@@ -2,7 +2,7 @@ import { Formik, Form, Field } from 'formik';
 import styled from '@emotion/styled';
 import { contactsFilter } from 'redux/filterSlice';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectFilter } from 'redux/selectors';
+import { selectFilter } from 'redux/contacts/selectors';
 
 const FilterPlateStyled = styled.section`
   border: 1px solid lightgrey;

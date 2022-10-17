@@ -2,7 +2,7 @@ import { Formik, Form, Field, ErrorMessage} from 'formik';
 import styled from '@emotion/styled';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
-import { addContact } from 'redux/operations';
+import { addContact } from 'redux/contacts/operations';
 
 const FormStyled = styled.section`
   padding: 8px;
@@ -23,7 +23,7 @@ const schema = yup.object().shape({
   number: yup.string().required(),
 });
 
-const ContactsForm = function () {
+const ContactForm = function () {
   const dispatch = useDispatch();
   const handleSubmit = values => {
     dispatch(addContact(values));
@@ -64,4 +64,4 @@ const ContactsForm = function () {
   );
 };
 
-export default ContactsForm;
+export default ContactForm;
